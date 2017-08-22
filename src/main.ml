@@ -1,10 +1,10 @@
 let () =
-  let module WScript = Wsh_WScript in
-  let module XMLHTTP = Wsh_XMLHTTP in
+  let module WScript = Wsh.WScript in
+  let module XMLHTTP = Wsh.XMLHTTP in
   let req = XMLHTTP.make () in
 
   XMLHTTP.open'
-    ~meth:`get ~url:"http://www.example.com" req ~async:false;
+    ~meth:`get ~url:"http://www.example.com" ~async:false req;
 
   XMLHTTP.set'onreadystatechange req (fun () ->
     if XMLHTTP.readyState req = XMLHTTP.completed then

@@ -14,7 +14,7 @@ val open' :
   unit
 
 (** https://msdn.microsoft.com/en-us/library/ms763706(v=vs.85).aspx *)
-external send : t -> unit -> unit = "" [@@bs.send]
+external send : t -> unit = "" [@@bs.send]
 
 (** See `send` *)
 external send'string : string -> unit = "send" [@@bs.send.pipe: t]

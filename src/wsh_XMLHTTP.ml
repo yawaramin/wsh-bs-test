@@ -14,7 +14,7 @@ external _open :
 let open' ~meth ~url ?(async=true) ?(user="") ?(password="") t =
   _open meth url async user password t
 
-external send : t -> unit -> unit = "" [@@bs.send]
+external send : t -> unit = "" [@@bs.send]
 
 external send'string : string -> unit = "send" [@@bs.send.pipe: t]
 

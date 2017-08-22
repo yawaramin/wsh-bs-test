@@ -8,7 +8,9 @@
     "build:bsb": "bsb",
     "build:js": "rollup -c",
     "build": "run-s build:bsb build:js",
-    "watch:bsb": "bsb -w"
+    "watch:bsb": "bsb -w",
+    "watch:js": "rollup -c -w",
+    "watch": "run-p watch:bsb watch:js"
   },
   "devDependencies": {
     "bs-platform": "1.8.2",

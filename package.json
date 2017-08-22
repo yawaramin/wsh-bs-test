@@ -6,13 +6,15 @@
   "scripts": {
     "make-world": "bsb -make-world",
     "build:bsb": "bsb",
-    "build:js": "webpack lib/js/src/main.js build/index.js",
+    "build:js": "rollup -c",
     "build": "run-s build:bsb build:js",
     "watch:bsb": "bsb -w"
   },
   "devDependencies": {
     "bs-platform": "1.8.2",
     "npm-run-all": "^4.0.2",
+    "rollup": "^0.48.2",
+    "rollup-plugin-node-resolve": "^3.0.0",
     "webpack": "^3.5.5"
   }
 }

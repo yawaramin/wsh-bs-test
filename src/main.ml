@@ -1,12 +1,15 @@
 let () =
-  let req = Xml_http_req.make () in
+  let module WScript = Wsh_WScript in
+  let module XMLHTTP = Wsh_XMLHTTP in
+  let req = XMLHTTP.make () in
 
-  Xml_http_req.open' `get "http://www.example.com" req;
+  XMLHTTP.open'
+    ~meth:`get ~url:"http://www.example.com" req ~async:false;
 
-  Xml_http_req.set_onreadystatechange req (fun () ->
-    if Xml_http_req.ready_state req = Xml_http_req.completed then
-      Wscript.echo (Xml_http_req.response_text req));
+  XMLHTTP.set'onreadystatechange req (fun () ->
+    if XMLHTTP.readyState req = XMLHTTP.completed then
+      WScript.echo (XMLHTTP.responseText req));
 
-  Xml_http_req.send req;
-  Wscript.echo "Press Enter"
+  XMLHTTP.send req;
+  WScript.echo "Press Enter"
 

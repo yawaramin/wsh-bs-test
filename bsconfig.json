@@ -1,5 +1,6 @@
 {
   "name": "wsh-bs-test",
-  "sources": { "dir": "src" }
+  "sources": { "dir": "src" },
+  "package-specs": ["es6"]
 }
 

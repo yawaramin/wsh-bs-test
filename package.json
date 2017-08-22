@@ -1,0 +1,18 @@
+{
+  "name": "wsh-bs-test",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "make-world": "bsb -make-world",
+    "build:bsb": "bsb",
+    "build:js": "webpack lib/js/src/main.js build/index.js",
+    "build": "run-s build:bsb build:js",
+    "watch:bsb": "bsb -w"
+  },
+  "devDependencies": {
+    "bs-platform": "1.8.2",
+    "npm-run-all": "^4.0.2",
+    "webpack": "^3.5.5"
+  }
+}

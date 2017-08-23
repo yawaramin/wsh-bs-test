@@ -3,8 +3,7 @@ let () =
   let module XMLHTTP = Wsh.XMLHTTP in
   let req = XMLHTTP.make () in
 
-  XMLHTTP.open'
-    ~meth:`get ~url:"http://www.example.com" ~async:false req;
+  XMLHTTP.open' ~meth:`get ~url:"http://www.example.com" req;
 
   XMLHTTP.set'onreadystatechange req (fun () ->
     if XMLHTTP.readyState req = XMLHTTP.completed then
@@ -12,4 +11,3 @@ let () =
 
   XMLHTTP.send req;
   WScript.echo "Press Enter"
-

@@ -7,7 +7,10 @@ export default {
     file: './build/index.js',
     format: 'iife'
   },
-  plugins: [node_resolve({module: true, browser: true}), uglify()],
+  plugins: [
+    node_resolve({module: true, browser: true}),
+    //uglify()
+  ],
   name: 'index'
 }
 

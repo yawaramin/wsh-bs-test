@@ -39,6 +39,5 @@ external writeBlankLines : int -> unit = "WriteBlankLines" [@@bs.send.pipe: t]
 
 (** https://msdn.microsoft.com/en-us/library/aa242679(v=vs.60).aspx *)
 external writeLine : t -> unit = "WriteLine" [@@bs.send]
-
-(** See `writeLine` *)
 external writeLine'string : string -> unit = "WriteLine" [@@bs.send.pipe: t]
+

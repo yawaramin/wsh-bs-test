@@ -15,8 +15,12 @@ val open' :
 
 (** https://msdn.microsoft.com/en-us/library/ms763706(v=vs.85).aspx *)
 external send : t -> unit = "" [@@bs.send]
-external send'string : string -> unit = "send" [@@bs.send.pipe: t]
-external send'bytes : bytes -> unit = "send" [@@bs.send.pipe: t]
+
+(** See `send` *)
+external send'body :
+  ([ `string of string | `bytes of bytes ] [@bs.unwrap]) ->
+  unit =
+  "send" [@@bs.send.pipe: t]
 
 (** https://msdn.microsoft.com/en-us/library/ms762767(v=vs.85).aspx *)
 external set'onreadystatechange :

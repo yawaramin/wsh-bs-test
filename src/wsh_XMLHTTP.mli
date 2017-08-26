@@ -18,8 +18,7 @@ external send : t -> unit = "" [@@bs.send]
 
 (** See `send` *)
 external send'body :
-  ([ `string of string | `bytes of bytes ] [@bs.unwrap]) ->
-  unit =
+  ([ `string of string | `bytes of bytes ] [@bs.unwrap]) -> unit =
   "send" [@@bs.send.pipe: t]
 
 (** https://msdn.microsoft.com/en-us/library/ms762767(v=vs.85).aspx *)

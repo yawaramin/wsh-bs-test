@@ -1,6 +1,7 @@
 {
   "name": "wsh-bs-test",
   "sources": { "dir": "src" },
+  "bsc-flags": ["-bs-super-errors"],
   "package-specs": ["es6"]
 }
 

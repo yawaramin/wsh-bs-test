@@ -17,8 +17,7 @@ let open' ~meth ~url ?(async=true) ?(user="") ?(password="") t =
 external send : t -> unit = "" [@@bs.send]
 
 external send'body :
-  ([ `string of string | `bytes of bytes ] [@bs.unwrap]) ->
-  unit =
+  ([ `string of string | `bytes of bytes ] [@bs.unwrap]) -> unit =
   "send" [@@bs.send.pipe: t]
 
 external set'onreadystatechange :

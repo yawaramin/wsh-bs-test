@@ -20,7 +20,7 @@ external send'body :
   ([ `string of string | `bytes of bytes ] [@bs.unwrap]) -> unit =
   "send" [@@bs.send.pipe: t]
 
-external set'onreadystatechange :
+external onreadystatechange :
   t -> (unit -> unit [@bs.uncurry]) -> unit =
   "onreadystatechange" [@@bs.set]
 

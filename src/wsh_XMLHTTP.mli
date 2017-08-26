@@ -22,7 +22,7 @@ external send'body :
   "send" [@@bs.send.pipe: t]
 
 (** https://msdn.microsoft.com/en-us/library/ms762767(v=vs.85).aspx *)
-external set'onreadystatechange :
+external onreadystatechange :
   t -> (unit -> unit [@bs.uncurry]) -> unit =
   "onreadystatechange" [@@bs.set]
 

@@ -14,11 +14,14 @@ external _open :
 let open' ~meth ~url ?(async=true) ?(user="") ?(password="") t =
   _open meth url (Js.Boolean.to_js_boolean async) user password t
 
-external send : t -> unit = "" [@@bs.send]
+external _send : t -> unit = "send" [@@bs.send]
 
-external send'body :
+external _send'body :
   ([ `string of string | `bytes of bytes ] [@bs.unwrap]) -> unit =
   "send" [@@bs.send.pipe: t]
+
+let send ?body t =
+  match body with Some body -> _send'body body t | None -> _send t
 
 external onreadystatechange :
   t -> (unit -> unit [@bs.uncurry]) -> unit =

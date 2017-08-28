@@ -6,7 +6,7 @@ let () =
   XMLHTTP.open' ~meth:`get ~url:"http://www.example.com" req;
 
   XMLHTTP.onreadystatechange req (fun () ->
-    if XMLHTTP.readyState req = XMLHTTP.completed then
+    if XMLHTTP.ReadyState.(get req = completed) then
       WScript.echo (XMLHTTP.responseText req));
 
   XMLHTTP.send req;

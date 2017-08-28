@@ -1,6 +1,9 @@
 (** https://msdn.microsoft.com/en-us/library/aa242724(v=vs.60).aspx *)
 type t
 
+type iomode = [ `ForReading | `ForWriting | `ForAppending ]
+type format = [ `TristateUseDefault | `TristateTrue | `TristateFalse ]
+
 (** https://msdn.microsoft.com/en-us/library/aa242862(v=vs.60).aspx *)
 external atEndOfLine : t -> bool = "AtEndOfLine" [@@bs.get]
 

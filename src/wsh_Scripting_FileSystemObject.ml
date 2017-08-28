@@ -2,6 +2,8 @@ type t
 
 let make () = Wsh_ActiveXObject.make "Scripting.FileSystemObject"
 
+external getFile : string -> Wsh_File.t = "GetFile" [@@bs.send.pipe: t]
+
 external _openTextFile :
   string ->
   ([ `ForReading [@bs.as 1]
@@ -11,7 +13,8 @@ external _openTextFile :
   ([ `TristateUseDefault [@bs.as -2]
    | `TristateTrue [@bs.as -1]
    | `TristateFalse [@bs.as 0] ] [@bs.int]) ->
-   Wsh_TextStream.t = "OpenTextFile" [@@bs.send.pipe: t]
+  Wsh_TextStream.t =
+  "OpenTextFile" [@@bs.send.pipe: t]
 
 let openTextFile ~filename ?(iomode=`ForReading) ?(create=false) ?(format=`TristateUseDefault) t =
   _openTextFile filename iomode create format t

@@ -1,4 +1,6 @@
 type t
+type iomode = [ `ForReading | `ForWriting | `ForAppending ]
+type format = [ `TristateUseDefault | `TristateTrue | `TristateFalse ]
 
 external atEndOfLine : t -> bool = "AtEndOfLine" [@@bs.get]
 external atEndOfStream : t -> bool = "AtEndOfStream" [@@bs.get]

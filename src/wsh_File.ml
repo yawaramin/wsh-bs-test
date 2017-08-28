@@ -1,5 +1,20 @@
 type t
 
+module Attributes = struct
+  let normal = 0
+  let readOnly = 1
+  let hidden = 2
+  let system = 4
+  let volume = 8
+  let directory = 16
+  let archive = 32
+  let alias = 1024
+  let compressed = 2048
+
+  external get : t -> int = "Attributes" [@@bs.get]
+  external set : t -> int -> unit = "Attributes" [@@bs.set]
+end
+
 external _copy : string -> Js.boolean -> unit =
   "Copy" [@@bs.send.pipe: t]
 

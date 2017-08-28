@@ -1,5 +1,7 @@
 (** https://msdn.microsoft.com/en-us/library/ms759148(v=vs.85).aspx *)
 type t
+
+(** For internal use. *)
 type xmlhttp = t
 
 val make : unit -> t
@@ -46,48 +48,48 @@ external responseText : t -> string = "" [@@bs.get]
 module Status : sig
   type t
 
-  val (=) : t -> t -> bool
-
   val continue : t
-  val switching_protocols : t
+  val switchingProtocols : t
   val ok : t
   val created : t
   val accepted : t
-  val non_authoritative_info : t
-  val no_content : t
-  val reset_content : t
-  val partial_content : t
-  val multiple_choices : t
-  val moved_permanently : t
+  val nonAuthoritativeInfo : t
+  val noContent : t
+  val resetContent : t
+  val partialContent : t
+  val multipleChoices : t
+  val movedPermanently : t
   val found : t
-  val see_other : t
-  val not_modified : t
-  val use_proxy : t
-  val temporary_redirect : t
-  val bad_request : t
+  val seeOther : t
+  val notModified : t
+  val useProxy : t
+  val temporaryRedirect : t
+  val badRequest : t
   val unauthorized : t
-  val payment_required : t
+  val paymentRequired : t
   val forbidden : t
-  val not_found : t
-  val method_not_allowed : t
-  val not_acceptable : t
-  val proxy_auth_required : t
-  val req_timeout : t
+  val notFound : t
+  val methodNotAllowed : t
+  val notAcceptable : t
+  val proxyAuthRequired : t
+  val reqTimeout : t
   val conflict : t
   val gone : t
-  val length_required : t
-  val precondition_failed : t
-  val req_entity_too_large : t
-  val req_uri_too_long : t
-  val unsupported_media_type : t
-  val requested_range_not_suitable : t
-  val expectation_failed : t
-  val internal_server_error : t
-  val not_implemented : t
-  val bad_gateway : t
-  val service_unavailable : t
-  val gateway_timeout : t
-  val http_version_not_supported : t
+  val lengthRequired : t
+  val preconditionFailed : t
+  val reqEntityTooLarge : t
+  val reqUriTooLong : t
+  val unsupportedMediaType : t
+  val requestedRangeNotSuitable : t
+  val expectationFailed : t
+  val internalServerError : t
+  val notImplemented : t
+  val badGateway : t
+  val serviceUnavailable : t
+  val gatewayTimeout : t
+  val httpVersionNotSupported : t
+  val (=) : t -> t -> bool
+
   external get : xmlhttp -> t = "status" [@@bs.get]
 
   (** https://msdn.microsoft.com/en-us/library/ms759127(v=vs.85).aspx *)
